@@ -1,4 +1,4 @@
-# go-exercises
+# Go Coding Exercises
 A collection of coding problems and exercises completed in Go
 
 Includes:
