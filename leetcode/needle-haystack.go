@@ -52,6 +52,3 @@ func strStr(haystack string, needle string) int {
 func main() {
 	fmt.Println(strStr("hello", "ll"))
 }
-
-// Runtime: 1 ms, faster than 51.48% of Go online submissions for Implement strStr().
-// Memory Usage: 1.9 MB, less than 93.40% of Go online submissions for Implement strStr().
