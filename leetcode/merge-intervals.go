@@ -7,6 +7,8 @@
 // compare whether the end of comparing interval (index 1) is greater than the start
 // of the next interval
 // if so, they should be merged
+// then, check if comparing interval[1] is greater than next interval[1]
+// if so, it completely overlaps the next interval
 // replace the end of the comparing interval w/ the end of the next interval
 // next interval increments
 // if not, append the next interval to the results array
@@ -37,8 +39,14 @@ func merge(intervals [][]int) [][]int {
 	mergedIntervals = append(mergedIntervals, intervals[0])
 
 	for _, interval := range intervals[1:] {
+		// CHECK FOR TOTAL OVERLAP; IF CURRENTTOP[1] IS > INTERVAL[1]
 		if currentTop := mergedIntervals[len(mergedIntervals)-1]; currentTop[1] >= interval[0] {
-			currentTop[1] = interval[1]
+			// total overlap
+			if currentTop[1] > interval[1] {
+				continue
+			} else {
+				currentTop[1] = interval[1]
+			}
 		} else {
 			mergedIntervals = append(mergedIntervals, interval)
 		}
@@ -59,6 +67,14 @@ func main() {
 		{4, 5},
 	}
 
-	fmt.Println(merge(intervals))
-	fmt.Println(merge(intervalsTwo))
+	intervalsThree := [][]int{
+		{3, 6},
+		{4, 5},
+		{7, 10},
+		{8, 11},
+	}
+
+	fmt.Println(merge(intervals))      // [[1 6] [8 10] [15 18]]
+	fmt.Println(merge(intervalsTwo))   // [1, 5]
+	fmt.Println(merge(intervalsThree)) // [[3 6] [7 11]]
 }

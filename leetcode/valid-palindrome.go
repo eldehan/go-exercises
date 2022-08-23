@@ -35,7 +35,6 @@ func validPalindrome(str string) bool {
 			j--
 		}
 
-		fmt.Println(string(str[i]), string(str[j]))
 		if str[i] != str[j] {
 			return false
 		}
