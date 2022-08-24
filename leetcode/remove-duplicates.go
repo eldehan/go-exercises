@@ -6,11 +6,10 @@
 
 // pointers!...
 
-// size (k) = 1
 // current item = a
 //  a r                - increment r until val != a
 // [0,0,1,1,1,2,2,3,3,4]
-//  a   r               - first num that is not a; swap vals of a+1 and r; k+= 1
+//  a   r               - first num that is not a; swap vals of a+1 and r;
 // [0,0,1,1,1,2,2,3,3,4]
 //  a   r
 // [0,1,0,1,1,2,2,3,3,4]
@@ -18,7 +17,7 @@
 // [0,1,0,1,1,2,2,3,3,4]
 //    a       r         - increment r until val != a
 // [0,1,0,1,1,2,2,3,3,4]
-//    a       r         - swap vals of a+1 and r; k+= 1
+//    a       r         - swap vals of a+1 and r;
 // [0,1,2,1,1,0,2,3,3,4]
 //    a       r
 // [0,1,2,1,1,0,2,3,3,4]
@@ -26,23 +25,19 @@
 // [0,1,2,1,1,0,2,3,3,4]
 //      a         r     - increment r until val != a
 // [0,1,2,1,1,0,2,3,3,4]
-//      a         r     - swap a+1 and r; k+= 1
+//      a         r     - swap a+1 and r;
 // [0,1,2,3,1,0,2,2,3,4]
 //        a         r
 // [0,1,2,3,1,0,2,2,3,4]
 //        a           r
 // [0,1,2,3,1,0,2,2,3,4]
-//        a           r swap; k += 1
+//        a           r swap;
 // [0,1,2,3,4,0,2,2,3,1]
 
-// so, in the end, k = 5
-
 // algo summarized:
-// - k starts at 1 (representing first item of array)
 // - a starts at array[0], r starts at array[1]
 // - increment r until the value of array[r] != the value of array[a]
 //   - at this point, swap vals of a+1 and r
-//   - increment k
 //   - increment a and r
 // - loop ends when r goes out of bounds of array
 
