@@ -14,18 +14,14 @@ func hasCycle(head *ListNode) bool {
 	}
 
 	slowPointer := head
-	fastPointer := head.Next
+	fastPointer := head
 
-	for slowPointer != nil && fastPointer != nil {
+	for fastPointer != nil && fastPointer.Next != nil {
+		slowPointer = slowPointer.Next
+		fastPointer = fastPointer.Next.Next
+
 		if slowPointer == fastPointer {
 			return true
-		}
-
-		slowPointer = slowPointer.Next
-		if fastPointer.Next == nil {
-			return false
-		} else {
-			fastPointer = fastPointer.Next.Next
 		}
 	}
 
