@@ -17,20 +17,20 @@ func binarySearch(numbers []int, target int) int {
 	// start off setting 'found' index to -1, indicating it's not found yet
 	index := -1
 
-	// start and end assigned to 0 index and last index respectively
-	start, end := 0, len(numbers)-1
+	// left and right assigned to 0 index and last index respectively
+	left, right := 0, len(numbers)-1
 
-	// loop to run as long as the start is not greater than the end
-	for start <= end {
-		midpoint := (start + end) / 2
+	// loop to run as long as the left is not greater than the right
+	for left <= right {
+		mid := left + ((right - left) / 2)
 		// if target is found, set the 'found index' to the result and break the loop
-		if numbers[midpoint] == target {
-			index = midpoint
+		if numbers[mid] == target {
+			index = mid
 			break
-		} else if numbers[midpoint] < target {
-			start = midpoint + 1
+		} else if numbers[mid] < target {
+			left = mid + 1
 		} else {
-			end = midpoint - 1
+			right = mid - 1
 		}
 	}
 	return index
